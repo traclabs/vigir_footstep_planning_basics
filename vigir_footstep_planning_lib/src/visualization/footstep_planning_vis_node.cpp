@@ -21,11 +21,11 @@ FootstepPlanningVisNode::FootstepPlanningVisNode()
   planning_feedback_sub = nh.subscribe<msgs::PlanningFeedback>("planning_feedback", 1, &FootstepPlanningVisNode::planningFeedbackCallback, this);
 
   // publish topics
-  step_plan_vis_pub = nh.advertise<visualization_msgs::MarkerArray>("vis/step_plan_vis", 1, true);
-  upper_body_vis_pub = nh.advertise<visualization_msgs::MarkerArray>("vis/upper_body_vis", 1, true);
-  step_plan_path_pub = nh.advertise<nav_msgs::Path>("vis/step_plan_path", 1, true);
-  start_feet_pose_pub = nh.advertise<visualization_msgs::MarkerArray>("vis/start_feet_pose", 1, true);
-  goal_feet_pose_pub = nh.advertise<visualization_msgs::MarkerArray>("vis/goal_feet_pose", 1, true);
+  step_plan_vis_pub = nh.advertise<visualization_msgs::MarkerArray>("vis/step_plan_vis", 1, false);
+  upper_body_vis_pub = nh.advertise<visualization_msgs::MarkerArray>("vis/upper_body_vis", 1, false);
+  step_plan_path_pub = nh.advertise<nav_msgs::Path>("vis/step_plan_path", 1, false);
+  start_feet_pose_pub = nh.advertise<visualization_msgs::MarkerArray>("vis/start_feet_pose", 1, false);
+  goal_feet_pose_pub = nh.advertise<visualization_msgs::MarkerArray>("vis/goal_feet_pose", 1, false);
   visited_steps_pub = nh.advertise<sensor_msgs::PointCloud2>("feedback/visited_steps", 1);
   total_visited_steps_pub = nh.advertise<sensor_msgs::PointCloud2>("feedback/total_visited_steps", 1);
   current_step_plan_pub = nh.advertise<visualization_msgs::MarkerArray>("feedback/current_step_plan", 1);
