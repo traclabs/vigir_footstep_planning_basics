@@ -49,6 +49,10 @@ void publishStepPlan(ros::Publisher& pub, const msgs::StepPlan& step_plan, const
     last_step_plan_vis.markers[i].action = visualization_msgs::Marker::DELETE;
 
   // finally publish new markers
+  for (auto &m : last_step_plan_vis.markers)
+  {
+    m.header.stamp = ros::Time::now();
+  }
   pub.publish(last_step_plan_vis);
 
   // delete old markers from array
